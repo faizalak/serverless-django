@@ -1,0 +1,61 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/route-disabled: 'false'
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"django:latest","namespace":"sample-apps"},"fieldPath":"spec.template.spec.containers[?(@.name==\"django\")].image","pause":"false"}]
+    openshift.io/generated-by: OpenShiftWebConsole
+    serving.knative.dev/creator: admin2
+    serving.knative.dev/lastModifier: admin2
+  resourceVersion: '2588403'
+  name: django
+  namespace: sample-apps
+  labels:
+    app.kubernetes.io/component: django
+    app.kubernetes.io/instance: django
+    app.kubernetes.io/name: django
+    app.kubernetes.io/part-of: django-app
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-namespace: sample-apps
+    app.openshift.io/runtime-version: latest
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/target: '100'
+        autoscaling.knative.dev/targetUtilizationPercentage: '70'
+        autoscaling.knative.dev/window: 60s
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: django
+        app.kubernetes.io/instance: django
+        app.kubernetes.io/part-of: django-app
+        app.openshift.io/runtime: python
+        app.openshift.io/runtime-namespace: sample-apps
+        app.openshift.io/runtime-version: latest
+    spec:
+      containerConcurrency: 0
+      containers:
+        - image: >-
+            fkhader/django@sha256:4f56d0c0e78489fb8adbdf724c16c0bbc0d05947809a68bcace7a8fb322673ad
+          imagePullPolicy: Always
+          name: django
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          readinessProbe:
+            successThreshold: 1
+            tcpSocket:
+              port: 0
+          resources: {}
+      enableServiceLinks: false
+      timeoutSeconds: 300
+  traffic:
+    - latestRevision: false
+      percent: 50
+      revisionName: django-00003
+    - latestRevision: false
+      percent: 50
+      revisionName: django-00001
+
