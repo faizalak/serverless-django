@@ -53,7 +53,5 @@ spec:
       timeoutSeconds: 30
   traffic:
     - latestRevision: true
-      percent: 50
-    - latestRevision: false
-      percent: 50
+      percent: 100
 
