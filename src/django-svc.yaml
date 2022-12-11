@@ -50,7 +50,7 @@ spec:
               port: 0
           resources: {}
       enableServiceLinks: false
-      timeoutSeconds: 300
+      timeoutSeconds: 30
   traffic:
     - latestRevision: true
       percent: 100
