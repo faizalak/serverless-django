@@ -52,7 +52,7 @@ spec:
       enableServiceLinks: false
       timeoutSeconds: 30
   traffic:
-    - latestRevision: false
+    - latestRevision: true
       percent: 50
     - latestRevision: false
       percent: 50
