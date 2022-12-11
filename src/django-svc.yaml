@@ -52,6 +52,10 @@ spec:
       enableServiceLinks: false
       timeoutSeconds: 30
   traffic:
-    - latestRevision: true
-      percent: 100
+    - latestRevision: false
+      percent: 50
+      revisionName: django-00001
+    - latestRevision: false
+      percent: 50
+      revisionName: django-00002
 
