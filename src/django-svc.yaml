@@ -54,8 +54,6 @@ spec:
   traffic:
     - latestRevision: false
       percent: 50
-      revisionName: django-00001
     - latestRevision: false
       percent: 50
-      revisionName: django-00002
 
