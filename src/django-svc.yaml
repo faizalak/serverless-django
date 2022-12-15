@@ -8,7 +8,6 @@ metadata:
     openshift.io/generated-by: OpenShiftWebConsole
     serving.knative.dev/creator: kubeadmin
     serving.knative.dev/lastModifier: kubeadmin
-  resourceVersion: '2588403'
   name: django
   namespace: sample-apps
   labels:
