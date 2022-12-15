@@ -6,8 +6,6 @@ metadata:
     image.openshift.io/triggers: >-
       [{"from":{"kind":"ImageStreamTag","name":"django:latest","namespace":"sample-apps"},"fieldPath":"spec.template.spec.containers[?(@.name==\"django\")].image","pause":"false"}]
     openshift.io/generated-by: OpenShiftWebConsole
-    serving.knative.dev/creator: kubeadmin
-    serving.knative.dev/lastModifier: kubeadmin
   name: django
   namespace: sample-apps
   labels:
