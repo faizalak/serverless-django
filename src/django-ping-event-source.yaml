@@ -1,6 +1,6 @@
-apiVersion: sources.knative.dev/v1
-kind: PingSource
-metadata:
+#apiVersion: sources.knative.dev/v1
+#kind: PingSource
+#metadata:
   name: ping-source
   namespace: sample-apps
   labels:
@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: ping-source
     app.kubernetes.io/name: ping-source
     app.kubernetes.io/part-of: django
-spec:
+#spec:
   data: This is the ping event source
   schedule: '* * * * *'
   sink:
